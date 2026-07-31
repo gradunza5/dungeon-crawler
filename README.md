@@ -4,6 +4,7 @@ Really just trying to learn lua and the robots suggested this could be a good wa
 
 ## Structure
 
+```
 dungeon-explorer/
 │
 ├── main.lua
@@ -28,4 +29,4 @@ dungeon-explorer/
 │   └── test_inventory.lua
 │
 └── README.md
-
+```
