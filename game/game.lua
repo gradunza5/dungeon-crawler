@@ -1,28 +1,29 @@
-local action = require("data.action");
+require("data.action");
 
 
 local Game = {}
 Game.__index = Game;
 
-function Game:run()
+function Game.run()
 
     local options = {
-        action.new(),
-        action.new()
+        Action:create("Thing", function()
+            io.write("Thing callback")
+        end),
     }
-
+    
     print ("game running")
 
     local endGame = false;
-    local choice = "";
 
     while (not endGame) do
        io.write("Choose Option:\n") 
-       io.write("1. status\n");
-       io.write("2. explore\n");
-       io.write("3. exit\n");
+       for i,v in ipairs(options) do
+           io.write(i .. ". " .. v.label)
+       end
+       io.write("\n")
 
-       choice = io.read();
+       local choice = io.read();
 
        if (choice == "1" or choice == "explore") then
            io.write("exploring more\n");
